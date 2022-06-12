@@ -17,30 +17,30 @@ if __name__ == '__main__':
     #
     # cada linea de texto recibida es una entrada clave \tabulador valor
     #
+    import sys
+
+import sys
+
+if __name__ == "__main__":
+
+    curkey = None
+    total = 0
+
     for line in sys.stdin:
 
         key, val = line.split("\t")
         val = int(val)
 
         if key == curkey:
-
             if val > total:
                 total = val
             else:
                 val = total
         else:
-            #
-            # Se cambio de clave. Se reinicia el acumulador.
-            #
             if curkey is not None:
-                #
-                # una vez se han reducido todos los elementos
-                # con la misma clave se imprime el resultado en
-                # el flujo de salida
-                #
                 sys.stdout.write("{}\t{}\n".format(curkey, total))
 
             curkey = key
-            total = max(val)
+            total = val
 
     sys.stdout.write("{}\t{}\n".format(curkey, total))
