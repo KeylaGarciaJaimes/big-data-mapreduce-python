@@ -25,7 +25,7 @@ if __name__ == "__main__":
     for line in sys.stdin:
 
         key, val = line.split(",")
-        val = val
+        val = int(val)
 
         list.append((key, val))
 
